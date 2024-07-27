@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Личный кабинет сотрудника{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">Личный кабинет сотрудника</h1>
+    <p class="lead">Добро пожаловать! Здесь вы можете управлять своими задачами.</p>
+    <hr class="my-4">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5 class="card-title">Продукция</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Здесь будет функционал для просмотра продукции.</p>
+                    <a href="/products" class="btn btn-primary">Перейти</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5 class="card-title">Заказы</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Здесь будет функционал для просмотра заказов.</p>
+                    <a href="/orders" class="btn btn-primary">Перейти</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5 class="card-title">Склад</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Здесь будет функционал для просмотра склада.</p>
+                    <a href="/stock" class="btn btn-primary">Перейти</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5 class="card-title">Отчётность</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Здесь будет функционал для просмотра отчетности.</p>
+                    <a href="/reports" class="btn btn-primary">Перейти</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

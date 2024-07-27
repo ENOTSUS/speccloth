@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+</head>
+<body>
+    <h1>Добро пожаловать в ООО "Спецодежда"</h1>
+    <p>Пожалуйста, войдите в систему.</p>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('login') }}">Войти</a></li>
+
+        </ul>
+    </nav>
+</body>
+</html>

@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}Отчеты{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Отчеты</h1>
+
+    <!-- Отчеты -->
+    <h2>Общий отчет по складу</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Размер</th>
+                <th>Цена</th>
+                <th>Количество</th>
+                <th>Местоположение</th>
+            </tr>
+        </thead>
+        <tbody id="stock_report">
+            {% for item in stock_items %}
+            <tr>
+                <td>{{ item[1] }}</td>
+                <td>{{ item[2] }}</td>
+                <td>{{ item[3] }}</td>
+                <td>{{ item[4] }}</td>
+                <td>{{ item[5] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Общий отчет по продуктам</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Код</th>
+                <th>Название</th>
+                <th>Категория</th>
+                <th>Количество</th>
+                <th>Цена</th>
+                <th>Статус</th>
+            </tr>
+        </thead>
+        <tbody id="product_report">
+            {% for product in products %}
+            <tr>
+                <td>{{ product[1] }}</td>
+                <td>{{ product[2] }}</td>
+                <td>{{ product[3] }}</td>
+                <td>{{ product[4] }}</td>
+                <td>{{ product[5] }}</td>
+                <td>{{ product[6] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Общий отчет по заказам</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Клиент</th>
+                <th>Товар</th>
+                <th>Количество</th>
+                <th>Дата заказа</th>
+            </tr>
+        </thead>
+        <tbody id="order_report">
+            {% for order in orders %}
+            <tr>
+                <td>{{ order[0] }}</td>
+                <td>{{ order[1] }}</td>
+                <td>{{ order[2] }}</td>
+                <td>{{ order[3] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

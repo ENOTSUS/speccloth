@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Склад{% endblock %}
+
+{% block content %}
+<h1>Склад</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Код</th>
+            <th>Название</th>
+            <th>Категория</th>
+            <th>Количество</th>
+            <th>Местоположение</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in stock_items %}
+        <tr>
+            <td>{{ item[1] }}</td>
+            <td>{{ item[2] }}</td>
+            <td>{{ item[3] }}</td>
+            <td>{{ item[4] }}</td>
+            <td>{{ item[5] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Заказы{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Оформление заказа</h1>
+    <form action="{{ url_for('orders') }}" method="post">
+        <div class="form-group">
+            <label for="client">Клиент:</label>
+            <input type="text" class="form-control" id="client" name="client" placeholder="Введите имя клиента" required>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Сделать заказ</button>
+        <h3 class="mt-4 mb-3">Выберите товары для заказа:</h3>
+        <div class="row">
+            {% for product in stock_items %}
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product[1] }}</h5>
+                        <p class="card-text">Размер: {{ product[2] }}</p>
+                        <p class="card-text">Цена: {{ product[3] }} руб.</p>
+                        <p class="card-text">На складе: {{ product[4] }}</p>
+                        <div class="form-group">
+                            <label for="quantity_{{ product[0] }}">Количество:</label>
+                            <input type="number" class="form-control" id="quantity_{{ product[0] }}" name="quantity_{{ product[0] }}" min="0" max="{{ product[4] }}" value="0">
+                        </div>
+                        <input type="hidden" name="product_code_{{ product[0] }}" value="{{ product[0] }}">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% for product in products %}
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product[1] }}</h5>
+                        <p class="card-text">Категория: {{ product[2] }}</p>
+                        <p class="card-text">Цена: {{ product[4] }} руб.</p>
+                        <p class="card-text">На складе: {{ product[3] }}</p>
+                        <div class="form-group">
+                            <label for="quantity_{{ product[0] }}">Количество:</label>
+                            <input type="number" class="form-control" id="quantity_{{ product[0] }}" name="quantity_{{ product[0] }}" min="0" max="{{ product[3] }}" value="0">
+                        </div>
+                        <input type="hidden" name="product_code_{{ product[0] }}" value="{{ product[0] }}">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </form>
+</div>
+{% endblock %}
